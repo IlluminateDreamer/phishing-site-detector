@@ -2,7 +2,7 @@ import pickle
 import numpy as np
 
 # Load the pre-trained model
-model = pickle.load(open('phishing.pkl', 'rb'))
+model = pickle.load(open('phishing_model.pkl', 'rb'))
 
 def predict_phishing(url):
     """
@@ -18,6 +18,7 @@ def predict_phishing(url):
     return "Phishing" if prediction[0] == 'bad' else "Safe"
 
 # Example usage
-url_to_check = "https://youtube.com"
-result = predict_phishing(url_to_check)
-print(f"The URL '{url_to_check}' is classified as: {result}")
+while True:
+    url_to_check = input('url: ')
+    result = predict_phishing(url_to_check)
+    print(f"The URL '{url_to_check}' is classified as: {result}\n")
